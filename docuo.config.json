@@ -3,7 +3,7 @@
   "favicon": "image/favicon.ico",
   "themeConfig": {
     "navbar": {
-      "title": "My project",
+      "title": "Amazone Clone Project",
       "logo": "image/logo.png",
       "items": [
         {
