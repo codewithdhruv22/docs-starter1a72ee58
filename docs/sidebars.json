@@ -7,23 +7,9 @@
         {
           "type": "doc",
           "id": "mdxFiles/intro",
-          "label": "Introduction"
-        },
-        {
-          "type": "doc",
-          "id": "mdxFiles/app_function",
-          "label": "App Features"
-        },
-        {
-          "type": "doc",
-          "id": "mdxFiles/code",
-          "label": "Code Tips"
-        },
-        {
-          "type": "doc",
-          "id": "mdxFiles/about_me",
-          "label": "Who I am ?"
+          "label": "BhagyaLaxmi Project"
         }
+       
       ]
     }
 

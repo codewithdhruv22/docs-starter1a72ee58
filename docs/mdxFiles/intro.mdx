@@ -1,44 +1,88 @@
----
-title: Amazon Clone App Project in Flutter
-description: Introduction to the Amazon Clone App project developed in Flutter.
----
+# Introduction
 
-# Amazon Clone App Project in Flutter
+Welcome to our project! This comprehensive system, developed by Code With Dhruv, streamlines the management of orders and payments for BhagyaLaxmi Dairy. Leveraging modern technologies like Firebase, Flask, and Flutter, our system revolutionizes the process of order placement, payment handling, and order tracking. With features such as real-time updates, secure authentication, and seamless integration with hardware peripherals like printers, it offers a user-friendly experience for both customers and staff. Let's delve into how this project enhances operational efficiency and customer service in the dairy industry.
 
-Welcome to the documentation of our Amazon Clone App project developed in Flutter! In this project, we aimed to replicate the user interface and functionality of the popular e-commerce platform Amazon using Flutter, a cross-platform mobile application development framework.
+## Implementation Details and Customizations
 
-## Project Overview
+### Changing RazorPay API (cart_page.dart)
 
-### Objective
+To update the RazorPay API details, navigate to the `cart_page.dart` file and locate the `startPayment()` function. Modify the options object as follows:
 
-The main objective of this project is to provide a learning resource for Flutter developers who are interested in building complex and feature-rich mobile applications. By dissecting and understanding the architecture and implementation details of a real-world application like Amazon, developers can gain valuable insights into best practices, design patterns, and techniques for building scalable and robust Flutter apps.
+```dart
+void startPayment() {
+    var options = {
+      'key': 'rzp_live_Zt7uyicSURwINp',
+      'amount': totalPrice * 100, // amount in the smallest currency unit (e.g., 2000 paise = ₹20)
+      'name': 'BhagyaLaxmi Dairy',
+      'description': 'Payment For ',
+      // 'prefill': {'contact': "86545789"}
+    };
+```
+
+# Adding More Products (shop_page.dart)
+
+To include additional products, open the `shop_page.dart` file and add them to the `chat_products` list. Here's an example:
+
+```dart
+List<Product> chat_products = [
+    Product(
+      name: "SHEV PURI",
+      price: 30,
+      qty: 0,
+      imagePath: "assets/product_image/shevpuri.png",
+    ),
+```
+
+# Changing the Token Length (cart_page.dart)
+
+To adjust the token length, modify the `generateRandomNumber()` function in the `cart_page.dart` file:
+
+```dart
+int generateRandomNumber() { 
+    Random random = new Random(); 
+    int min = 100000; // minimum 6-digit number 
+    int max = 999999; // maximum 6-digit number 
+    return min + random.nextInt(max - min); 
+} 
+```
+
+# Finding Printer Name
+
+To find the printer name, follow these steps:
+
+1. Open Device Manager.
+
+   ![Open Device Manager](https://i.ibb.co/FhsHLCN/111111.png)
+
+2. Locate your printer in the list.
+
+   ![Find Your Printer](https://i.ibb.co/CswhV9v/22121212.png)
+
+Once you have found your printer, add its name to the printer_name list. Note that the printer name is case-sensitive in the code.
 
 
-## Technologies Used
+# Adding Printer Name (main.py)
 
-### Flutter
+To specify the printer name, update the `printer_name` variable in the `main.py` file:
 
-Flutter is an open-source UI software development toolkit created by Google. It allows developers to build natively compiled applications for mobile, web, and desktop from a single codebase. We chose Flutter for this project due to its fast development cycle, expressive and flexible UI components, and excellent performance.
+```python
+printer_name = ["POS-80C"]
+```
 
-### Firebase
 
-Firebase is a comprehensive mobile development platform provided by Google. We leveraged Firebase services such as Firebase Authentication for user authentication and Firebase Firestore for real-time database functionality, enabling seamless data synchronization across devices.
+# Changing Admin Panel PIN (main.py)
 
-## Project Structure
+To modify the admin panel PIN, update the `VALID_PASSWORD` variable in the `main.py` file:
 
-Our project follows a modular and scalable architecture, making it easy to maintain and extend. Here's a brief overview of the project structure:
+```python
+VALID_PASSWORD = "123456"
+```
 
-- **lib/**: Contains the main source code of the Flutter application.
-  - **screens/**: Screens representing different parts of the application, such as home, product details, cart, and user profile.
-  - **widgets/**: Reusable UI components and widgets used across multiple screens.
-  - **models/**: Data models representing entities such as users, products, orders, etc.
-  - **services/**: Service classes responsible for interacting with external APIs, databases, and other services.
-- **assets/**: Contains static assets such as images and fonts used in the application.
-- **pubspec.yaml**: Configuration file for managing dependencies and assets.
+# Changing Notification Sound (main.html)
 
-## Getting Started
+To update the notification sound, modify the `audio` variable in the `main.html` file:
 
-To get started with the Amazon Clone App project, follow these steps:
-
-1. **Clone the Repository**: Clone the project repository from GitHub using the following command:
+```html
+var audio = new Audio('/static/light-hearted-message-tone.mp3');
+```
 
